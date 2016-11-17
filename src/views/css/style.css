@@ -36,6 +36,11 @@ form {
   z-index: -1;
 }
 
+#movingPizzas1 {
+  position: fixed;
+  z-index: -1;
+}
+
 .randomPizzaContainer {
   float: left;
   display: flex;
