@@ -57,4 +57,4 @@ gulp.task('watch', function(){
   gulp.watch('src/**/*.{css,js,html}', ['build']);
 });
 
-gulp.task('build', ['minify-html', 'minify-css', 'uglify-js']);
+gulp.task('build', ['minify-css', 'minify-html', 'uglify-js']);
