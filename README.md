@@ -2,6 +2,8 @@
 
 This project is to optimize the online resume for speed! Mainly to optimize the CRP and make this page render as quickly as possible. Also the pizzeria website have various optimizations for animation to meet the 60fps silky smooth rate. Live demo of this project is available [here](https://rehanumar.github.io/p4-website-optimization/dist/index.html).
 
+_WORKS WELL ON CHROME! HAVEN'T TESTED IT ON SAFARI YET!_
+
 ### Results
 
 #### Part 1- Page Speed Insights
