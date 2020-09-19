@@ -1,5 +1,5 @@
 /*
-Welcome to the 60fps project! Your goal is to make Cam's Pizzeria website run
+Welcome to the 60fps project! Your goal is to make Rehan's Pizzeria website run
 jank-free at 60 frames per second.
 
 There are two major issues in this code that lead to sub-60fps performance. Can
@@ -408,7 +408,7 @@ var resizePizzas = function(size) {
   var elemOffsetWidth = randomPizzaList[1].offsetWidth;
   var windowWidth = randomPizzasRow.offsetWidth;
   var dx = determineDx(randomPizzaList[1], size);
-  var newwidth = (elemOffsetWidth + dx) + 'px';
+  var newwidth = (elemOffsetWidth + dx) + "px";
 
   // Changes the value for the size of the pizza above the slider
   function changeSliderLabel(size) {
@@ -493,21 +493,16 @@ function logAverageFrame(times) {   // times is the array of User Timing measure
   console.log("Average scripting time to generate last 10 frames: " + sum / 10 + "ms");
 }
 
-// The following code for sliding background pizzas was pulled from Ilya's demo found at:
-// https://www.igvita.com/slides/2012/devtools-tips-and-tricks/jank-demo.html
-
 // Moves the sliding background pizzas based on scroll position
 function updatePositions() {
   frame++;
   window.performance.mark("mark_start_frame");
 
-  var items = document.getElementsByClassName('mover');
-  var scrollPos = document.body.scrollTop / 1250;
+  var items = document.getElementsByClassName("mover");
   for (var i = 0; i < items.length; i++) {
-    var phase = Math.sin(scrollPos + (i % 5));
-    var newPos = items[i].basicLeft + 100 * phase + 'px';
-    // items[i].style.left = newPos;
-    items[i].style.transform = "translateX("+newPos+")";
+    var phase = Math.sin((document.documentElement.scrollTop / 1250) + (i % 5));
+    var newPos = items[i].basicLeft + 100 * phase + "px";
+    items[i].style.transform = "translate3d("+newPos+",0,0)";
   }
 
   // User Timing API to the rescue again. Seriously, it's worth learning.
@@ -521,22 +516,22 @@ function updatePositions() {
 }
 
 // runs updatePositions on scroll
-window.addEventListener('scroll', function(){
+window.addEventListener("scroll", function(){
   window.requestAnimationFrame(updatePositions);
 });
 
 // Generates the sliding pizzas when the page loads.
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener("DOMContentLoaded", function() {
   var cols = 8;
   var s = 256;
   for (var i = 0; i < 40; i++) {
-    var elem = document.createElement('img');
-    elem.className = 'mover';
+    var elem = document.createElement("img");
+    elem.className = "mover";
     elem.src = "images/pizza.png";
     elem.style.height = "100px";
     elem.style.width = "73.333px";
     elem.basicLeft = (i % cols) * s;
-    elem.style.top = (Math.floor(i / cols) * s) + 'px';
+    elem.style.top = (Math.floor(i / cols) * s) + "px";
     document.querySelector("#movingPizzas1").appendChild(elem);
   }
   updatePositions();

@@ -32,7 +32,6 @@ form {
 .mover {
   position: fixed;
   will-change: transform;
-  transform: translateZ(0);
   z-index: -1;
 }
 
